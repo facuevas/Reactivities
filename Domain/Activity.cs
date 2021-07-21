@@ -1,6 +1,6 @@
 using System;
 /*
-    This class is our Activity entity.
+This class is our Activity entity.
 */
 namespace Domain
 {
