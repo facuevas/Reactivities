@@ -1,5 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Segment, Image, Item, Header, Button } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
 
@@ -47,7 +48,7 @@ function ActivityDetailedHeader({ activity }: Props) {
         <Segment clearing attached="bottom">
           <Button color="teal">Join Activity</Button>
           <Button>Cancel Attendence</Button>
-          <Button color="orange" floated="right">
+          <Button as={Link} to={`/manage/${activity.id}`} color="orange" floated="right">
             Manage Event
           </Button>
         </Segment>
