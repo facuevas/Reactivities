@@ -13,12 +13,12 @@ namespace API.Controllers
         [HttpGet("bad-request")]
         public ActionResult GetBadRequest()
         {
-            return BadRequest("This is a bad request");
+            return BadRequest("THIS IS A BAD REQUEST");
         }
         [HttpGet("server-error")]
         public ActionResult GetServerError()
         {
-            throw new Exception("This is a server error");
+            throw new Exception("ThIS IS A SERVER ERROR");
         }
         [HttpGet("unauthorised")]
         public ActionResult GetUnauthorised()

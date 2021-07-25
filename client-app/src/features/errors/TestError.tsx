@@ -1,9 +1,11 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Header, Segment } from "semantic-ui-react";
+import ValidationErrors from "./ValidationErrors";
 
 function TestErrors() {
   const baseUrl = "http://localhost:5000/api/";
+  const [errors, setErrors] = useState();
 
   function handleNotFound() {
     axios.get(baseUrl + "buggy/not-found").catch((err) => console.log(err.response));
@@ -26,7 +28,7 @@ function TestErrors() {
   }
 
   function handleValidationError() {
-    axios.post(baseUrl + "activities", {}).catch((err) => console.log(err.response));
+    axios.post(baseUrl + "activities", {}).catch((err) => setErrors(err));
   }
 
   return (
@@ -42,6 +44,7 @@ function TestErrors() {
           <Button onClick={handleBadGuid} content="Bad Guid" basic primary />
         </Button.Group>
       </Segment>
+      {errors && <ValidationErrors errors={errors} />}
     </>
   );
 }
