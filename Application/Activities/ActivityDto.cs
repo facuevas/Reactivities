@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-/*
-This class is our Activity entity.
-*/
-namespace Domain
+using Application.Profiles;
+
+namespace Application.Activities
 {
-    public class Activity
+    public class ActivityDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -14,8 +13,9 @@ namespace Domain
         public string Category { get; set; }
         public string City { get; set; }
         public string Venue { get; set; }
+        public string HostUsername { get; set; }
         public bool IsCanceled { get; set; }
 
-        public ICollection<ActivityAttendee> Attendees { get; set; } = new List<ActivityAttendee>();
+        public ICollection<Profile> Attendees { get; set; }
     }
 }
