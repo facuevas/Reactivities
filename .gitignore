@@ -435,7 +435,7 @@ $RECYCLE.BIN/
 *.msi
 *.msix
 *.msm
-*.msp
+*.msp 
 
 # Windows shortcuts
 *.lnk
@@ -453,3 +453,6 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 .DS_Store
+
+# Ignore appsettings.json
+appsettings.json
