@@ -45,6 +45,9 @@ namespace API.Extensions
             // add IUserAccessor as a service
             services.AddScoped<IUserAccessor, UserAccessor>();
 
+            // add IPhotoAccessor as a service
+            services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+
             // add Cloudinary as a Configuration service
             services.Configure<CloudinarySettings>(configuration.GetSection("Cloudinary"));
 
