@@ -1,3 +1,4 @@
+import { Pagination } from "./../models/pagination";
 import { ActivityFormValues } from "./../models/activity";
 import { store } from "./store";
 import { makeAutoObservable, runInAction } from "mobx";
@@ -12,6 +13,7 @@ export default class ActivityStore {
   editMode = false;
   loading = false;
   loadingInitial = false;
+  pagination: Pagination | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -36,15 +38,20 @@ export default class ActivityStore {
   loadActivities = async () => {
     this.loadingInitial = true;
     try {
-      const activities = await agent.Activities.list();
-      activities.forEach((activity) => {
+      const result = await agent.Activities.list();
+      result.data.forEach((activity) => {
         this.setActivity(activity);
       });
+      this.setPagination(result.pagination);
       this.setLoadingInitial(false);
     } catch (error) {
       console.log(error);
       this.setLoadingInitial(true);
     }
+  };
+
+  setPagination = (pagination: Pagination) => {
+    this.pagination = pagination;
   };
 
   loadActivity = async (id: string) => {

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Application.Activities;
+using Application.Core;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,9 @@ namespace API.Controllers
         // We use the Mediator dependency.
 
         [HttpGet] // /activities
-        public async Task<IActionResult> GetActivities()
+        public async Task<IActionResult> GetActivities([FromQuery] PagingParams param)
         {
-            return HandleResult(await Mediator.Send(new List.Query()));
+            return HandlePagedResult(await Mediator.Send(new List.Query { Params = param }));
         }
 
         [HttpGet("{id}")] // activities/id
@@ -28,7 +29,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateActivity(Activity activity)
         {
-            return HandleResult(await Mediator.Send(new Create.Command {Activity = activity}));
+            return HandleResult(await Mediator.Send(new Create.Command { Activity = activity }));
         }
 
         [Authorize(Policy = "IsActivityHost")]
