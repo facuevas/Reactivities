@@ -1,3 +1,4 @@
+import { UserActivity } from "./../models/userActivity";
 import { PaginatedResult } from "./../models/pagination";
 import { Photo, Profile } from "./../models/profile";
 import { ActivityFormValues } from "./../models/activity";
@@ -12,6 +13,7 @@ import { toast } from "react-toastify";
 import { history } from "../..";
 import { Activity } from "../models/activity";
 import { User } from "../models/users";
+import ProfileEditForm from "../../features/profiles/ProfileEditForm";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -115,6 +117,8 @@ const Profiles = {
   updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
   listFollowings: (username: string, predicate: string) =>
     requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`),
+  listActivities: (username: string, predicate: string) =>
+    requests.get<UserActivity[]>(`/profiles/${username}/activities?predicate=${predicate}`),
 };
 
 const agent = {
