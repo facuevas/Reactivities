@@ -4,7 +4,7 @@ import { Button, Header, Segment } from "semantic-ui-react";
 import ValidationErrors from "./ValidationErrors";
 
 function TestErrors() {
-  const baseUrl = "http://localhost:5000/api/";
+  const baseUrl = process.env.REACT_APP_API_URL;
   const [errors, setErrors] = useState();
 
   function handleNotFound() {
