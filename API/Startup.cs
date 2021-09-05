@@ -65,6 +65,7 @@ namespace API
                 CustomSources(
                     "sha256-Rh8MTEBtFMyFx6O4lsoOVvHhuLlcTgXK7ygQ7YPzl5A=",
                     "sha256-BU7Mhtm6xAgWV2p2ZFwFlmNc01H7lzaDRtRD1NLC2Z8=",
+                    "sha256-F9OzFtTBjnWbTkOU9cw+KEhE4IahTe4AObdhZKM0f6U=",
                     "https://connect.facebook.net"
                 ))
             );
