@@ -54,13 +54,13 @@ namespace API
                 .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
-                .ImageSources(s => s.Self().CustomSources(
-                    "https://res.cloudinary.com",
-                    "https://www.facebook.com",
-                    "https://scontent-lax3-2.xx.fbcdn.net",
-                    "https://scontent-iad3-2.xx.fbcdn.net",
-                    "data:"
-                ))
+                // .ImageSources(s => s.Self().CustomSources(
+                //     "https://res.cloudinary.com",
+                //     "https://www.facebook.com",
+                //     "https://scontent-lax3-2.xx.fbcdn.net",
+                //     "https://scontent-iad3-2.xx.fbcdn.net",
+                //     "data:"
+                // ))
                 .ScriptSources(s => s.Self().
                 CustomSources(
                     "sha256-Rh8MTEBtFMyFx6O4lsoOVvHhuLlcTgXK7ygQ7YPzl5A=",
