@@ -2,6 +2,7 @@ using System;
 using Application.Activities;
 using Application.Core;
 using Application.Interfaces;
+using Infrastructure.Email;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
@@ -91,6 +92,9 @@ namespace API.Extensions
 
             // add IPhotoAccessor as a service
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+
+            // add EmailSender as a service
+            services.AddScoped<EmailSender>();
 
             // add Cloudinary as a Configuration service
             services.Configure<CloudinarySettings>(configuration.GetSection("Cloudinary"));
